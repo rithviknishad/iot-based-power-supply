@@ -1,0 +1,58 @@
+setters:
+  - topic: ps/OutputVoltage
+    expects:
+      - <double>
+    description: setter for PS's reference output voltage
+    retain: True
+
+  - topic: ps/Enabled
+    expects:
+      - 0 # Disabled
+      - 1 # Enabled
+    description: whether the converter should be enabled or not
+    retain: True
+
+getters:
+  - topic: ps/state/OutputVoltage
+    description: PS's output voltage (V)
+    retain: True
+
+  - topic: ps/state/OutputCurrent
+    description: PS's output current (A)
+    retain: True
+
+  - topic: ps/state/InputVoltage
+    description: PS's input voltage (V)
+    retain: True
+
+  - topic: ps/state/InputCurrent
+    description: PS's input current (A)
+    retain: True
+
+  - topic: ps/state/InputPower
+    description: PS's input power (W)
+    retain: True
+
+  - topic: ps/state/OutputPower
+    description: PS's output power (W)
+    retain: True
+
+  - topic: ps/state/Efficiency
+    description: PS's efficiency (%)
+    retain: True
+
+  - topic: ps/state/MaxVoltage
+    description: PS's max design voltage (V)
+    retain: True
+
+  - topic: ps/state/MaxCurrent
+    description: PS's max design current (A)
+    retain: True
+
+  - topic: ps/state/MaxPower
+    description: PS's max design power (W)
+    retain: True
+
+  - topic: ps/state/Load
+    description: PS's load wrt max design power (%)
+    retain: True
