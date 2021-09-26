@@ -6,7 +6,8 @@ float x = 0.1;
 
 void loop() {
   delay(10);
-  writeToMatlab(sin(x += 0.01));
+  //writeToMatlab(10 * sin(x += 0.01) + 20);
+  writeToMatlab(30);
 }
 
 void writeToMatlab(float value) {
