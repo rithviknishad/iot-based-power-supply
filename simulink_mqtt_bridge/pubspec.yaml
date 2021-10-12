@@ -12,3 +12,6 @@ environment:
 
 dev_dependencies:
   lints: ^1.0.0
+dependencies: 
+  meta: ^1.7.0
+  mqtt_client: ^9.6.1
