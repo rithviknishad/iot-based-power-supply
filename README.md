@@ -11,6 +11,18 @@ A power supply that can be controlled and monitored using MQTT.
 - [ ] Simulink model for simple power converter (Rohith)
 - [ ] Serial COM integration w/ Simulink (Rohith and Rithvik)
 
+### Running the Simulink MQTT Bridge Server
+
+```sh
+dart run simulink_mqtt_bridge/bin/simulink_mqtt_bridge.dart
+```
+
+or run the compiled stable versions:
+
+```sh
+./simulink_mqtt_bridge_linux64
+```
+
 ### Provisioned topics in MQTT ecosystem
 
 ```yaml
