@@ -4,12 +4,13 @@ A power supply that can be controlled and monitored using MQTT.
 
 ## Tasks
 
-- [x] `node-red` server and `MQTT mosquitto` server setup (Rithvik)
-- [ ] `node-red` based monitoring of PS (Karthik)
-- [ ] `node-red` based controlling of PS (Karthik)
-- [ ] IoT Firmware using `nonos-sdk` on ESP8266 (Rithvik)
-- [ ] Simulink model for simple power converter (Rohith)
-- [ ] Serial COM integration w/ Simulink (Rohith and Rithvik)
+- [x] `node-red` and `mosquitto` server setup.
+- [ ] `node-red` dashboard listen to provisioned topics.
+- [ ] `node-red` dashboard to control simulink.
+- [x] Simulink MQTT Bridge to convert Simulink's TCP media to MQTT for `node-red`.
+- [x] Simulink Push-Pull converter.
+- [ ] Simulink Push-Pull dynamic load w. closed loop control.
+- [ ] Simulink Push-Pull converter transformer and inductor design.
 
 ### Running the Simulink MQTT Bridge Server
 
