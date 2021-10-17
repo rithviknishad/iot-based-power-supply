@@ -46,7 +46,7 @@ Map<Topics, double> parsePacket(Uint8List data) {
 
 List<double> _decodePacket(String packet) {
   try {
-    final attributes = packet.split(',');
+    final attributes = packet.split(',')..removeWhere((e) => e.isEmpty);
 
     if (attributes.length != 4) {
       throw Exception(
