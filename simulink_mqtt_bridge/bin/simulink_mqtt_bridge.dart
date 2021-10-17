@@ -60,6 +60,10 @@ void main(List<String> args) async {
 void handleConnection(Socket client) {
   stdout.writeln('>>> ${DateTime.now()} Simulink run started.');
 
+  mqtt.updateState({
+    Topics.isRunning: 'true',
+  });
+
   client.listen(
     (data) => mqtt.updateState(
       {
@@ -79,12 +83,20 @@ void handleConnection(Socket client) {
       );
 
       client.close();
+
+      mqtt.updateState({
+        Topics.isRunning: '-1',
+      });
     },
 
     // Log end of simulink simulation
     onDone: () {
       stdout.writeln('>>> ${DateTime.now()} Simulink run stopped.');
       client.close();
+
+      mqtt.updateState({
+        Topics.isRunning: '0',
+      });
     },
   );
 }
