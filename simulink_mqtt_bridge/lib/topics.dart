@@ -11,6 +11,7 @@ enum Topics {
   maxPower,
   load,
   lastUpdatedOn,
+  isRunning,
 }
 
 extension TopicsStringifier on Topics {
