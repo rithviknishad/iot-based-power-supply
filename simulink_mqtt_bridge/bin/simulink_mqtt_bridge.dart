@@ -59,6 +59,7 @@ void main(List<String> args) async {
 
 void handleConnection(Socket client) {
   stdout.writeln('>>> ${DateTime.now()} Simulink run started.');
+  simulink.initSession();
 
   mqtt.updateState({
     Topics.isRunning: 'true',

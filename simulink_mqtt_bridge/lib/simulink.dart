@@ -5,6 +5,11 @@ import 'package:simulink_mqtt_bridge/topics.dart';
 
 double _maxVout = -1.0, _maxIout = -1.0, _maxPout = -1.0;
 
+void initSession() {
+  _maxVout = _maxIout = _maxPout = -1.0;
+}
+
+
 Map<Topics, double> parsePacket(Uint8List data) {
   final packet = String.fromCharCodes(data);
 
