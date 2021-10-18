@@ -96,7 +96,7 @@ void handleConnection(Socket client) {
       client.close();
 
       mqtt.updateState({
-        Topics.isRunning: '0',
+        Topics.isRunning: 'false',
       });
     },
   );
