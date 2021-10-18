@@ -10,10 +10,10 @@ Map<Topics, double> parsePacket(Uint8List data) {
 
   final attributes = _decodePacket(packet);
 
-  var vOut = attributes.elementAt(0),
-      iOut = attributes.elementAt(1),
-      vIn = attributes.elementAt(2),
-      iIn = attributes.elementAt(3);
+  var vIn = attributes.elementAt(0),
+      iIn = attributes.elementAt(1),
+      vOut = attributes.elementAt(2),
+      iOut = attributes.elementAt(3);
 
   var pIn = vIn * iIn,
       pOut = vOut * iOut,
@@ -46,7 +46,7 @@ Map<Topics, double> parsePacket(Uint8List data) {
 
 List<double> _decodePacket(String packet) {
   try {
-    final attributes = packet.split(',');
+    final attributes = packet.split(',')..removeWhere((e) => e.isEmpty);
 
     if (attributes.length != 4) {
       throw Exception(

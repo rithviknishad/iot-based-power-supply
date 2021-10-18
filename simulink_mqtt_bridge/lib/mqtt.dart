@@ -10,6 +10,8 @@ Future<void> connect(
   String server, {
   required int port,
   required String as,
+  String? username,
+  String? password,
 }) async {
   _client = MqttServerClient.withPort(server, as, port);
 
@@ -23,7 +25,7 @@ Future<void> connect(
     ..onDisconnected = (() => _log('disconnected from mqtt-server'));
 
   try {
-    await _client.connect();
+    await _client.connect(username, password);
   } on NoConnectionException catch (e) {
     print(e);
     _client.disconnect();
