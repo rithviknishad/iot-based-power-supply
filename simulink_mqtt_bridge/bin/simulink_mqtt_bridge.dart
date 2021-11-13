@@ -66,11 +66,13 @@ void handleConnection(Socket client) {
 
   client.listen(
     (data) => mqtt.updateState(
+      // TODO: use YAML stream instead of Pack and Yield Muxed Output
       {
         // All attributes
         ...simulink.parsePacket(data).map(
               (topic, value) => MapEntry(topic, value.toStringAsFixed(4)),
             ),
+
         // Timestamp
         Topics.lastUpdatedOn: DateTime.now().toString(),
       },
@@ -79,14 +81,12 @@ void handleConnection(Socket client) {
     // Log the error.
     onError: (error) {
       stdout.writeln(
-        'Error in `handleConnection` for client ${client.address.address}:${client.port}. Error: $error',
+        'Error in `handleConnection` for client ${client.address.address}:${client.port}.\nError: $error',
       );
 
       client.close();
 
-      mqtt.updateState({
-        Topics.isRunning: '-1',
-      });
+      mqtt.updateState({Topics.isRunning: '-1'});
     },
 
     // Log end of simulink simulation
