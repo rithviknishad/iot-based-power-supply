@@ -14,6 +14,7 @@ enum Topics {
   isRunning,
 }
 
+// TODO: avoid this to make karthiks work simpler.
 extension TopicsStringifier on Topics {
   String get topic {
     final value = toString().split('.').last;
