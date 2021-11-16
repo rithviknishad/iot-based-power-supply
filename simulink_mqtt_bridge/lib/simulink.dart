@@ -13,12 +13,10 @@ Map<Topics, double> parsePacket(Uint8List data) {
   var vIn = attributes.elementAt(0),
       iIn = attributes.elementAt(1),
       vOut = attributes.elementAt(2),
-      iOut = attributes.elementAt(3);
+      iOut = attributes.elementAt(3),
+      efficiency = attributes.elementAt(4);
 
-  var pIn = vIn * iIn,
-      pOut = vOut * iOut,
-      efficiency = pOut * 1e2 / pIn,
-      load = pOut / 1e3;
+  var pIn = vIn * iIn, pOut = vOut * iOut, load = pOut / 1e3;
 
   if (_maxVout < vOut) _maxVout = vOut;
   if (_maxIout < iOut) _maxIout = iOut;
@@ -48,9 +46,9 @@ List<double> _decodePacket(String packet) {
   try {
     final attributes = packet.split(',')..removeWhere((e) => e.isEmpty);
 
-    if (attributes.length != 4) {
+    if (attributes.length != 5) {
       throw Exception(
-        "packet.split(',').length != 4. Got: ${attributes.length}",
+        "packet.split(',').length != 5. Got: ${attributes.length}",
       );
     }
 
