@@ -6,6 +6,8 @@ import 'package:simulink_mqtt_bridge/mqtt.dart' as mqtt;
 import 'package:simulink_mqtt_bridge/topics.dart';
 
 void main(List<String> args) async {
+  stdout.writeln();
+
   final parser = ArgParser()
     ..addOption(
       'listen',
